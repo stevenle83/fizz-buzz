@@ -1,11 +1,7 @@
 $(document).ready(function() {
 
-    $(".submit").on("click", function() {
-
-        var number = $(".input").val();
-
-        $(".input").val("");
-
+    var fizzBuzz = function (number) {
+        
         $("#output").text("");
 
         for ( var i = 1; i <= number; i ++ ) {
@@ -34,8 +30,46 @@ $(document).ready(function() {
 
             }
 
-        }   
-    
-    });
+        }    
 
+    }
+
+    var userInput = function () {
+
+        $(".submit").on("click", function() {
+
+            var num = +$(".input").val();
+
+            +$(".input").val("");
+
+            if ( num < 1 || num > 100 ) {
+
+                alert('Please enter a number from 1 to 100!');
+
+            }
+
+            else if ( isNaN(num) ) {
+
+                alert('Please enter a numerical value!');
+
+            }
+
+            else if ( num % 1 != 0 ) {
+
+                alert('Please enter whole numbers only, no decimals!');
+
+            }
+
+            else {
+
+                fizzBuzz(num);
+
+            }
+
+        });    
+
+    }    
+
+    userInput();
+    
 });
